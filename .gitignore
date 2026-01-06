@@ -1,0 +1,40 @@
+# Documentation files (excluded from repository)
+QUICK_DEPLOY.md
+DEPLOYMENT_GUIDE.md
+IMPLEMENTATION_SUMMARY.md
+GIT_SETUP.md
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build outputs
+dist/
+build/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
