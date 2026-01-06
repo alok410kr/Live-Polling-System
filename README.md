@@ -2,6 +2,15 @@
 
 A real-time polling application built with React and Express.js, designed for interactive classroom environments where teachers can create polls and students can respond in real-time.
 
+## 🚀 Live Demo
+
+**Frontend (Netlify):** [https://golden-toffee-8368a9.netlify.app/](https://golden-toffee-8368a9.netlify.app/)
+
+- **Teacher Dashboard:** [https://golden-toffee-8368a9.netlify.app/teacher](https://golden-toffee-8368a9.netlify.app/teacher)
+- **Student Interface:** [https://golden-toffee-8368a9.netlify.app/student](https://golden-toffee-8368a9.netlify.app/student)
+
+> **Note:** The backend is deployed separately. Make sure the backend is running for full functionality.
+
 ##  Table of Contents
 
 - [Overview](#overview)
