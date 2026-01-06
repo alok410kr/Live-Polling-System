@@ -187,10 +187,12 @@ class PollService {
       const results = {};
       let totalVotes = 0;
 
+      // Initialize all options to 0
       poll.options.forEach((option) => {
         results[option] = 0;
       });
 
+      // Count votes
       votes.forEach((vote) => {
         if (results[vote.answer] !== undefined) {
           results[vote.answer]++;

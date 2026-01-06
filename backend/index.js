@@ -278,7 +278,12 @@ io.on("connection", (socket) => {
    */
   socket.on("getResults", async () => {
     try {
-      const poll = await PollService.getCurrentPoll();
+      // Get poll directly from database (not getCurrentPoll which converts _id to string)
+      const Poll = (await import("./models/Poll.js")).default;
+      const poll = await Poll.findOne({ status: "active" })
+        .sort({ createdAt: -1 })
+        .lean();
+        
       if (!poll) {
         socket.emit("results", {
           results: {},
@@ -288,6 +293,7 @@ io.on("connection", (socket) => {
         return;
       }
 
+      // Use the actual poll._id (ObjectId) from database
       const results = await PollService.calculateResults(poll._id);
       // Ensure all options are present in results (even with 0 votes)
       const completeResults = {
@@ -301,6 +307,7 @@ io.on("connection", (socket) => {
         completeResults.results[option] = results.results?.[option] || 0;
       });
 
+      console.log(`[getResults] PollId: ${poll._id}, Complete results:`, completeResults);
       socket.emit("results", completeResults);
     } catch (error) {
       console.error("Error in getResults:", error);
