@@ -289,7 +289,19 @@ io.on("connection", (socket) => {
       }
 
       const results = await PollService.calculateResults(poll._id);
-      socket.emit("results", results);
+      // Ensure all options are present in results (even with 0 votes)
+      const completeResults = {
+        results: {},
+        totalVotes: results.totalVotes || 0,
+        totalStudents: results.totalStudents || 0,
+      };
+
+      // Initialize all options to 0 if not present
+      poll.options.forEach((option) => {
+        completeResults.results[option] = results.results?.[option] || 0;
+      });
+
+      socket.emit("results", completeResults);
     } catch (error) {
       console.error("Error in getResults:", error);
       socket.emit("error", "Failed to get results");
