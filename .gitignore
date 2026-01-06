@@ -4,6 +4,8 @@ DEPLOYMENT_GUIDE.md
 IMPLEMENTATION_SUMMARY.md
 GIT_SETUP.md
 DEPLOYMENT_FIXES.md
+# Keep deployment setup guide
+!.github/DEPLOYMENT_SETUP.md
 
 # Environment files
 .env

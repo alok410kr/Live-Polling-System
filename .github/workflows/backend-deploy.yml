@@ -1,0 +1,40 @@
+name: Deploy Backend
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "backend/**"
+      - ".github/workflows/backend-deploy.yml"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy Backend
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ./backend
+        run: npm ci
+
+      - name: Run tests (if any)
+        working-directory: ./backend
+        run: echo "Add tests here if available"
+
+      - name: Deployment notification
+        run: |
+          echo "Backend deployment should be configured on Railway/Render"
+          echo "This workflow can be extended to trigger Railway/Render deployments"
+          echo "See: https://docs.railway.app/develop/github-actions"

@@ -1,0 +1,49 @@
+name: Deploy to Netlify
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "frontend/**"
+      - ".github/workflows/netlify-deploy.yml"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "frontend/**"
+
+jobs:
+  deploy:
+    name: Deploy Frontend to Netlify
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ./frontend
+        run: npm ci
+
+      - name: Build
+        working-directory: ./frontend
+        run: npm run build
+        env:
+          VITE_SOCKET_URL: ${{ secrets.VITE_SOCKET_URL }}
+
+      - name: Deploy to Netlify
+        uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        with:
+          args: deploy --dir=frontend/dist --prod
+          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'

@@ -2,7 +2,7 @@
 
 A real-time polling application built with React and Express.js, designed for interactive classroom environments where teachers can create polls and students can respond in real-time.
 
-## 🚀 Live Demo
+##  Live Demo
 
 **Frontend (Netlify):** [https://golden-toffee-8368a9.netlify.app/](https://golden-toffee-8368a9.netlify.app/)
 
@@ -11,7 +11,7 @@ A real-time polling application built with React and Express.js, designed for in
 
 > **Note:** The backend is deployed separately. Make sure the backend is running for full functionality.
 
-##  Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Features](#features)
@@ -27,7 +27,7 @@ A real-time polling application built with React and Express.js, designed for in
 - [Troubleshooting](#troubleshooting)
 - [Future Enhancements](#future-enhancements)
 
-##  Overview
+## Overview
 
 The Live Polling System is a full-stack web application that enables real-time interaction between teachers and students. Teachers can create polls with multiple choice questions, set timers, and view live results. Students can join sessions, answer questions, and see results after submission or when the timer expires.
 
@@ -40,9 +40,9 @@ The Live Polling System is a full-stack web application that enables real-time i
 - **Session-based**: Student names are stored per browser tab using sessionStorage
 - **Live Results**: Real-time polling results visible to both teachers and students
 
-##  Features
+## Features
 
-###  Teacher Features
+### Teacher Features
 
 - **Create Polls**: Create multiple-choice questions with customizable options
 - **Set Timer**: Configure poll duration (15, 30, 45, 60, 90, or 120 seconds)
@@ -56,7 +56,7 @@ The Live Polling System is a full-stack web application that enables real-time i
   - Only one option can be marked as correct
   - Prevents creating new polls while one is active
 
-###  Student Features
+### Student Features
 
 - **Name Entry**: Enter name on first visit (unique per browser tab)
 - **Join Polls**: Automatically receive active polls from teachers
@@ -66,7 +66,7 @@ The Live Polling System is a full-stack web application that enables real-time i
 - **Chat System**: Participate in real-time chat with teachers and other students
 - **Auto-redirect**: Automatic redirection if kicked out by teacher
 
-##  Technology Stack
+## Technology Stack
 
 ### Frontend
 
@@ -86,7 +86,7 @@ The Live Polling System is a full-stack web application that enables real-time i
 - **dotenv 17.2.3**: Environment variable management
 - **nodemon 3.1.11**: Development server with auto-reload
 
-##  Project Structure
+## Project Structure
 
 ```
 Intervue.io_Assignment/
@@ -135,7 +135,7 @@ Intervue.io_Assignment/
 └── README.md                 # This file
 ```
 
-##  Installation
+## Installation
 
 ### Prerequisites
 
@@ -163,7 +163,7 @@ cd ../frontend
 npm install
 ```
 
-##  Configuration
+## Configuration
 
 ### Backend Configuration
 
@@ -219,7 +219,7 @@ touch .env
 VITE_SOCKET_URL=http://localhost:3001
 ```
 
-##  Running the Project
+## Running the Project
 
 ### Development Mode
 
@@ -259,7 +259,7 @@ cd frontend
 npm run preview
 ```
 
-##  Usage Guide
+## Usage Guide
 
 ### For Teachers
 
@@ -290,7 +290,7 @@ npm run preview
 6. **View Results**: After submission or when timer expires, view the results
 7. **Chat**: Click the chat icon to participate in the chat
 
-##  Socket.IO Events
+## Socket.IO Events
 
 ### Client to Server Events
 
@@ -454,7 +454,7 @@ npm run preview
   "Error message here";
   ```
 
-##  Key Features Explained
+## Key Features Explained
 
 ### Real-time Polling
 
@@ -492,7 +492,7 @@ Each poll has a configurable timer. When the timer expires:
 - **Complete Results**: Includes question, options, results, and correct answer
 - **Chronological Order**: Most recent polls appear first
 
-##  Troubleshooting
+## Troubleshooting
 
 ### Backend Issues
 
@@ -540,7 +540,7 @@ Each poll has a configurable timer. When the timer expires:
 - **Solution**: Check that all options have unique text
 - **Solution**: Verify validation is working correctly
 
-##  Future Enhancements
+## Future Enhancements
 
 Potential improvements for the system:
 
@@ -558,6 +558,6 @@ Potential improvements for the system:
 - [ ] Poll sharing via links
 - [ ] Custom themes and branding
 
-##  License
+## License
 
 This project is created as an assignment submission. Please refer to the assignment guidelines for usage and distribution terms.
