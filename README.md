@@ -33,6 +33,7 @@ The Live Polling System is a full-stack web application that enables real-time i
 
 ### Key Highlights
 
+- **🌐 Live Deployment**: Frontend deployed on Netlify, backend on Railway/Render
 - **Real-time Communication**: Powered by Socket.IO for instant updates
 - **Responsive Design**: Modern UI built with Tailwind CSS following Figma design specifications
 - **State Management**: Redux Toolkit for efficient state handling
