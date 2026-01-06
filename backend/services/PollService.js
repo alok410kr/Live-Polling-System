@@ -169,17 +169,21 @@ class PollService {
    */
   async calculateResults(pollId) {
     try {
-      // Handle both string and ObjectId
-      const poll =
+      // Handle both string and ObjectId - convert to ObjectId for query
+      const mongoose = await import("mongoose");
+      const pollIdObj =
         typeof pollId === "string"
-          ? await Poll.findById(pollId).lean()
-          : await Poll.findById(pollId).lean();
+          ? new mongoose.default.Types.ObjectId(pollId)
+          : pollId;
+
+      const poll = await Poll.findById(pollIdObj).lean();
 
       if (!poll) {
         throw new Error("Poll not found");
       }
 
-      const votes = await Vote.find({ pollId }).lean();
+      // Use ObjectId for querying votes
+      const votes = await Vote.find({ pollId: pollIdObj }).lean();
       const results = {};
       let totalVotes = 0;
 

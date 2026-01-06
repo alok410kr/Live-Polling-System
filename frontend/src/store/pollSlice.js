@@ -68,14 +68,19 @@ const pollSlice = createSlice({
 
     // Poll created/updated
     setCurrentPoll: (state, action) => {
-      // Only reset hasAnswered if it's a new poll (different question)
+      // Only reset hasAnswered and results if it's a new poll (different question or different _id)
       if (
         action.payload &&
         state.currentPoll &&
-        state.currentPoll.question !== action.payload.question
+        (state.currentPoll.question !== action.payload.question ||
+         state.currentPoll._id !== action.payload._id)
       ) {
         state.hasAnswered = false;
         state.submittedAnswer = null;
+        // Only clear results if it's a completely new poll
+        if (state.currentPoll._id !== action.payload._id) {
+          state.results = null;
+        }
       }
       state.currentPoll = action.payload;
       if (action.payload) {

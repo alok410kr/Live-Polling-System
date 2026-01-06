@@ -54,15 +54,7 @@ const TeacherPage = () => {
     return () => {
       if (interval) clearInterval(interval);
     };
-  }, [currentPoll?.status, getResults]);
-
-  // Initialize results when poll is created
-  useEffect(() => {
-    if (currentPoll && currentPoll.status === "active") {
-      // Get results immediately when poll becomes active
-      getResults();
-    }
-  }, [currentPoll?._id, currentPoll?.status]);
+  }, [currentPoll?._id, currentPoll?.status, getResults]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
